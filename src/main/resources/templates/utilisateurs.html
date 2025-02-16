@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des utilisateurs</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="my-4">
+            <h1>Gestion des utilisateurs</h1>
+        </header>
+
+        <a href="/utilisateur/ajouter" class="btn btn-primary mb-3">Ajouter un utilisateur</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="utilisateur : ${utilisateurs}">
+                    <td th:text="${utilisateur.nom}"></td>
+                    <td th:text="${utilisateur.email}"></td>
+                    <td th:text="${utilisateur.telephone}"></td>
+                    <td>
+                        <a th:href="@{/utilisateur/modifier/{id}(id=${utilisateur.id})}" class="btn btn-warning btn-sm">Modifier</a>
+                        <a th:href="@{/utilisateur/supprimer/{id}(id=${utilisateur.id})}" class="btn btn-danger btn-sm">Supprimer</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

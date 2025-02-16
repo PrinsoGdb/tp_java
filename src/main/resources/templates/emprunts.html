@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des emprunts</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="my-4">
+            <h1>Gestion des emprunts</h1>
+        </header>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>Livre</th>
+                    <th>Date d'emprunt</th>
+                    <th>Date de retour prévue</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="emprunt : ${emprunts}">
+                    <td th:text="${emprunt.utilisateur.nom}"></td>
+                    <td th:text="${emprunt.livre.titre}"></td>
+                    <td th:text="${emprunt.dateEmprunt}"></td>
+                    <td th:text="${emprunt.dateRetourPrevue}"></td>
+                    <td th:text="${emprunt.statut}"></td>
+                    <td>
+                        <a th:href="@{/emprunt/rendre/{id}(id=${emprunt.id})}" class="btn btn-success btn-sm">Rendre</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
