@@ -1,7 +1,8 @@
-package com.example.myapp.service;
+package com.example.gestionbiblio.service;
 
-import com.example.myapp.entity.User;
-import com.example.myapp.repository.UserRepository;
+import com.example.gestionbiblio.entity.Utilisateur;
+import com.example.gestionbiblio.repository.UtilisateurRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,42 +10,47 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UtilisateurService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UtilisateurRepository utilisateurRepository;
 
     // Ajouter un utilisateur
-    public User addUser(User user) {
-        return userRepository.save(user);
+    public Utilisateur addUtilisateur(Utilisateur utilisateur) {
+        return utilisateurRepository.save(utilisateur);
     }
 
     // Afficher tous les utilisateurs
-    public List<User> showAllUsers() {
-        return userRepository.findAll();
+    public List<Utilisateur> getAllUtilisateurs() {
+        return utilisateurRepository.findAll();
     }
 
     // Afficher un utilisateur par ID
-    public Optional<User> showUser(Long id) {
-        return userRepository.findById(id);
+    public Optional<Utilisateur> getUtilisateurById(Long id) {
+        return utilisateurRepository.findById(id);
     }
 
     // Rechercher un utilisateur par nom ou email
-    public List<User> searchUser(String keyword) {
-        return userRepository.findByNomContainingOrEmailContaining(keyword, keyword);
+    public List<Utilisateur> searchUtilisateur(String keyword) {
+        return utilisateurRepository.findByNomContainingOrEmailContaining(keyword, keyword);
     }
 
     // Mettre à jour un utilisateur
-    public User updateUser(Long id, User userDetails) {
-        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
-        user.setNom(userDetails.getNom());
-        user.setEmail(userDetails.getEmail());
-        user.setTelephone(userDetails.getTelephone());
-        return userRepository.save(user);
+    @Transactional
+    public Utilisateur updateUtilisateur(Long id, Utilisateur utilisateurDetails) {
+        Utilisateur utilisateur = utilisateurRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Utilisateur avec ID " + id + " non trouvé"));
+        utilisateur.setNom(utilisateurDetails.getNom());
+        utilisateur.setEmail(utilisateurDetails.getEmail());
+        utilisateur.setTelephone(utilisateurDetails.getTelephone());
+        return utilisateurRepository.save(utilisateur);
     }
 
     // Supprimer un utilisateur
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public void deleteUtilisateur(Long id) {
+        if (!utilisateurRepository.existsById(id)) {
+            throw new IllegalArgumentException("Utilisateur avec ID " + id + " non trouvé");
+        }
+        utilisateurRepository.deleteById(id);
     }
 }
