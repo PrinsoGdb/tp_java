@@ -1,4 +1,4 @@
-package com.example.gestionbiblio.repository;
+package com.bibliotheque.gestionbiblio.repository;
 
 import com.example.gestionbiblio.entity.Emprunt;
 import com.example.gestionbiblio.entity.Utilisateur;

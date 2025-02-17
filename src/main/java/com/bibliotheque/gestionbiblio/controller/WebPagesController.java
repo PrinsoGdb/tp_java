@@ -1,8 +1,8 @@
-package com.example.gestionbiblio.controller;
+package com.bibliotheque.gestionbiblio.controller;
 
-import com.example.gestionbiblio.repositories.LivreRepository;
-import com.example.gestionbiblio.repositories.EmpruntRepository;
-import com.example.gestionbiblio.repositories.UserRepository;
+import com.bibliotheque.gestionbiblio.repository.LivreRepository;
+import com.bibliotheque.gestionbiblio.repository.EmpruntRepository;
+import com.bibliotheque.gestionbiblio.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

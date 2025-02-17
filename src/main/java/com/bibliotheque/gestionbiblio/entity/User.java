@@ -1,4 +1,4 @@
-package com.example.gestionbiblio.entity;
+package com.bibliotheque.gestionbiblio.entity;
 
 import jakarta.persistence.*;
 

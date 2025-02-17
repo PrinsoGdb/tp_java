@@ -1,7 +1,7 @@
-package com.example.gestionbiblio.controller;
+package com.bibliotheque.gestionbiblio.controller;
 
-import com.example.gestionbiblio.entity.User;
-import com.example.gestionbiblio.service.UserService;
+import com.bibliotheque.gestionbiblio.entity.User;
+import com.bibliotheque.gestionbiblio.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

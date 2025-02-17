@@ -1,6 +1,7 @@
-package com.example.gestionbiblio.repository;
+package com.bibliotheque.gestionbiblio.repository;
 
-import com.example.gestionbiblio.entity.Livre;
+import com.bibliotheque.gestionbiblio.entity.Livre;
+import com.bibliotheque.gestionbiblio.entity.Livre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

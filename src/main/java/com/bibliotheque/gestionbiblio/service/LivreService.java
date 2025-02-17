@@ -1,7 +1,8 @@
-package com.example.gestionbiblio.service;
+package com.bibliotheque.gestionbiblio.service;
 
-import com.example.gestionbiblio.entity.Livre;
-import com.example.gestionbiblio.repository.LivreRepository;
+import com.bibliotheque.gestionbiblio.repository.LivreRepository;
+import com.bibliotheque.gestionbiblio.entity.Livre;
+import com.bibliotheque.gestionbiblio.repository.LivreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

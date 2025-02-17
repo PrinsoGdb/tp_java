@@ -1,4 +1,4 @@
-package com.example.gestionbiblio.entity;
+package com.bibliotheque.gestionbiblio.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ public class Emprunt {
     
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
-    private Utilisateur utilisateur;
+    private User utilisateur;
     
     @ManyToOne
     @JoinColumn(name = "livre_id")
@@ -24,7 +24,7 @@ public class Emprunt {
     // Constructeurs
     public Emprunt() {}
 
-    public Emprunt(Utilisateur utilisateur, Livre livre, LocalDate dateEmprunt, LocalDate dateRetourPrevue, boolean rendu) {
+    public Emprunt(User utilisateur, Livre livre, LocalDate dateEmprunt, LocalDate dateRetourPrevue, boolean rendu) {
         this.utilisateur = utilisateur;
         this.livre = livre;
         this.dateEmprunt = dateEmprunt;
@@ -36,8 +36,8 @@ public class Emprunt {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public Utilisateur getUtilisateur() { return utilisateur; }
-    public void setUtilisateur(Utilisateur utilisateur) { this.utilisateur = utilisateur; }
+    public User getUtilisateur() { return utilisateur; }
+    public void setUtilisateur(User utilisateur) { this.utilisateur = utilisateur; }
 
     public Livre getLivre() { return livre; }
     public void setLivre(Livre livre) { this.livre = livre; }
